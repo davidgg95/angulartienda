@@ -1,0 +1,44 @@
+<div *ngIf="producto != undefined">
+  <h2>{{producto._nombre}} </h2>
+  <div><span>Id: </span>{{producto._id}}</div>
+  <div><span>Nombre: </span>{{producto._nombre}}</div>
+  <div>
+    <label
+      >Precio:
+      <input
+        #productoPrecio
+        [(ngModel)]="producto._precio"
+        placeholder="precio"
+      />
+    </label>
+    <br />
+    <label
+      >Cantidad:
+      <input
+        #productoCantidad
+        [(ngModel)]="producto._cantidad"
+        placeholder="cantidad"
+      />
+    </label>
+    <br />
+    <label
+      >Fecha Entrada:
+      <input
+        #productoFechaEntrada
+        [(ngModel)]="producto._entrada"
+        placeholder="caducidad"
+      />
+    </label>
+    <br />
+    <label
+      >Tienda:
+      <input
+        #productoTienda
+        [(ngModel)]="producto._tienda"
+        placeholder="tienda"
+      />
+    </label>
+  </div>
+  <button (click)="goBack()">Volver</button>
+  <button (click)="save(productoPrecio.value, productoCantidad.value)">Guardar</button>
+</div>

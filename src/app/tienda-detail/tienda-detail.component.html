@@ -1,0 +1,89 @@
+<div *ngIf="tienda != undefined">
+  <h2>{{tienda._nombre}} </h2>
+  <div><span>Id: </span>{{tienda._id}}</div>
+  <div><span>Nombre: </span>{{tienda._nombre}}</div>
+  <div>
+    <label
+      >Provincia:
+      <input
+        #tiendaProvincia
+        [(ngModel)]="tienda._provincia"
+        placeholder="provincia"
+      />
+    </label>
+    <br />
+    <label
+      >Direccion:
+      <input
+        #tiendaDireccion
+        [(ngModel)]="tienda._direccion"
+        placeholder="direccion"
+      />
+    </label>
+    <br />
+    <label
+      >Ingresos:
+      <input
+        #tiendaIngresos
+        [(ngModel)]="tienda._ingresos"
+        placeholder="ingresos"
+      />
+    </label>
+    <br />
+  </div>
+  <button (click)="goBack()">volver</button>
+  <button (click)="save(tiendaProvincia.value)">Guardar</button>
+
+  <br><br>
+  <h2>Productos</h2>
+  <table class="productos">
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Precio</th>
+      <th>Cantidad</th>
+      <th>Fecha Entrada</th>
+    </tr>
+    <tr *ngFor="let t of tienda._productos">
+      <td>{{t._id}}</td>
+      <th>
+        <a routerLink="/detail/{{t._nombre}}"> {{t._nombre}} </a>
+      </th>
+      <td>{{t._precio}}</td>
+      <td>{{t._cantidad}}</td>
+      <td>{{t._entrada}}</td>
+    </tr>
+  </table>
+  <h2>¿Desea añadir algún producto a {{tienda._nombre}}?</h2>
+  <table class="productos">
+    <tr>
+      <th>ID:</th>
+      <th><input #productoId /></th>
+    </tr>
+    <tr>
+      <th>Nombre:</th>
+      <th><input #productoNombre /></th>
+    </tr>
+    <tr>
+      <th>Precio:</th>
+      <th><input #productoPrecio /></th>
+    </tr>
+    <tr>
+      <th>Cantidad:</th>
+      <th><input #productoCantidad /></th>
+    </tr>
+    <tr>
+      <th>Fecha de Entrada:</th>
+      <th><input #productoFechaEntrada /></th>
+    </tr>
+    <tr>
+      <th colspan="2">
+        <button
+            (click)="add(productoId.value, productoNombre.value, productoPrecio.value, productoCantidad.value, productoFechaEntrada.value);productoNombre.value=''; productoPrecio.value='';productoCantidad.value=''; productoFechaEntrada.value=''"
+          >
+            Añadir
+          </button>
+      </th>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,25 @@
+input {
+  background-color: whitesmoke;
+  text-align: left;
+  border-radius: 5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-color: black;
+  border-width: 2px;
+  border-collapse: separate;
+}
+
+button {
+  background-color: rgb(13, 14, 13);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+  font-family: Arial;
+  color: white;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+}

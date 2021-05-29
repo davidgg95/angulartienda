@@ -1,0 +1,66 @@
+<h2>Añadir Producto</h2>
+
+<table>
+  <tr>
+    <th>ID:</th>
+    <th><input #productoId /></th>
+  </tr>
+  <tr>
+    <th>Nombre:</th>
+    <th><input #productoNombre /></th>
+  </tr>
+  <tr>
+    <th>Precio:</th>
+    <th><input #productoPrecio /></th>
+  </tr>
+  <tr>
+    <th>Cantidad:</th>
+    <th><input #productoCantidad /></th>
+  </tr>
+  <tr>
+    <th>Fecha de Entrada:</th>
+    <th><input #productoFechaEntrada /></th>
+  </tr>
+  <tr>
+    <th>Tienda:</th>
+    <th><input #productoTienda /></th>
+  </tr>
+  <tr>
+    <th colspan="2">
+      <button
+        (click)="add(productoId.value, productoNombre.value, productoPrecio.value, productoCantidad.value, productoFechaEntrada.value, productoTienda.value);productoNombre.value=''; productoPrecio.value='';productoCantidad.value=''; productoFechaEntrada.value=''; productoTienda.value=''"
+      >
+        Añadir 
+      </button>
+    </th>
+  </tr>
+</table>
+
+<h2>Mis Productos</h2>
+
+<table class="productos">
+  <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Precio</th>
+    <th>Cantidad</th>
+    <th>Entrada</th>
+    <th>Tienda</th>
+    <th>Eliminar</th>
+  </tr>
+  <tr *ngFor="let producto of productos">
+    <th>{{producto._id}}</th>
+    <th>
+      <a routerLink="/detail/{{producto._nombre}}"> {{producto._nombre}} </a>
+    </th>
+    <th>{{producto._precio}}</th>
+    <th>{{producto._cantidad}}</th>
+    <th>{{producto._entrada}}</th>
+    <th>{{producto._tienda}}</th>
+    <th>
+      <button class="delete" title="delete producto" (click)="delete(producto)">
+        x
+      </button>
+    </th>
+  </tr>
+</table>

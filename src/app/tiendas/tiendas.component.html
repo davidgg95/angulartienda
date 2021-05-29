@@ -1,0 +1,60 @@
+<h2>Añadir Tienda</h2>
+
+<table>
+  <tr>
+    <th>ID:</th>
+    <th><input #tiendaId /></th>
+  </tr>
+  <tr>
+    <th>Nombre:</th>
+    <th><input #tiendaNombre /></th>
+  </tr>
+  <tr>
+    <th>Provincia:</th>
+    <th><input #tiendaProvincia /></th>
+  </tr>
+  <tr>
+    <th>Dirección:</th>
+    <th><input #tiendaDireccion /></th>
+  </tr>
+  <tr>
+    <th>Ingresos:</th>
+    <th><input #tiendaIngresos /></th>
+  </tr>
+  <tr>
+    <th colspan="2">
+      <button
+        (click)="add(tiendaId.value, tiendaNombre.value,tiendaProvincia.value, tiendaDireccion.value, tiendaIngresos.value);tiendaNombre.value='';tiendaProvincia.value='';tiendaDireccion.value='';tiendaIngresos.value=''"
+      >
+        Añadir
+      </button>
+    </th>
+  </tr>
+</table>
+
+<h2>Mis Tiendas</h2>
+
+<table class="tiendas">
+  <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Provincia</th>
+    <th>Dirección</th>
+    <th>Ingresos</th>
+    <th>Eliminar</th>
+  </tr>
+  <tr *ngFor="let tienda of tiendas">
+    <th>{{tienda._id}}</th>
+    <th>
+      <a routerLink="/detail2/{{tienda._nombre}}"> {{tienda._nombre}} </a>
+    </th>
+    <th>{{tienda._provincia}}</th>
+    <th>{{tienda._direccion}}</th>
+    <th>{{tienda._ingresos}}</th>
+    <th>
+      <button class="delete" title="delete tienda" (click)="delete(tienda)">
+        x
+      </button>
+    </th>
+  </tr>
+</table>
